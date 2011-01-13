@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		2F7446990DB6B7EA00F9684A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F7446970DB6B7EA00F9684A /* MainMenu.xib */; };
-		770B37ED0679A11B001EADE2 /* CoreDataVersioning_DataModel.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 770B37EC0679A11B001EADE2 /* CoreDataVersioning_DataModel.xcdatamodel */; };
 		77C8280E06725ACE000B614F /* CoreDataVersioning_AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C8280C06725ACE000B614F /* CoreDataVersioning_AppDelegate.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		B6B7414D12DF80A3006620B8 /* CoreDataVersioning_DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B6B7414C12DF80A3006620B8 /* CoreDataVersioning_DataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +29,7 @@
 		77C8280C06725ACE000B614F /* CoreDataVersioning_AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataVersioning_AppDelegate.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* CoreDataVersioning-Info.plist */ = {isa = PBXFileReference; explicitFileType = text.plist.xml; fileEncoding = 4; path = "CoreDataVersioning-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* CoreDataVersioning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataVersioning.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6B7414E12DF80A3006620B8 /* CoreDataVersioning_DataModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreDataVersioning_DataModel 2.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +123,7 @@
 		7756732906782D8800D1FEB8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				770B37EC0679A11B001EADE2 /* CoreDataVersioning_DataModel.xcdatamodel */,
+				B6B7414C12DF80A3006620B8 /* CoreDataVersioning_DataModel.xcdatamodeld */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -191,7 +192,7 @@
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				77C8280E06725ACE000B614F /* CoreDataVersioning_AppDelegate.m in Sources */,
-				770B37ED0679A11B001EADE2 /* CoreDataVersioning_DataModel.xcdatamodel in Sources */,
+				B6B7414D12DF80A3006620B8 /* CoreDataVersioning_DataModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +299,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B6B7414C12DF80A3006620B8 /* CoreDataVersioning_DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				770B37EC0679A11B001EADE2 /* CoreDataVersioning_DataModel.xcdatamodel */,
+				B6B7414E12DF80A3006620B8 /* CoreDataVersioning_DataModel 2.xcdatamodel */,
+			);
+			currentVersion = 770B37EC0679A11B001EADE2 /* CoreDataVersioning_DataModel.xcdatamodel */;
+			path = CoreDataVersioning_DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
 }
