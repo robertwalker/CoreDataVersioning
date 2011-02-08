@@ -8,6 +8,12 @@
 
 #import "CoreDataVersioning_AppDelegate.h"
 
+@interface CoreDataVersioning_AppDelegate ()
+
+- (void)seedPersistentStore;
+
+@end
+
 @implementation CoreDataVersioning_AppDelegate
 
 @synthesize window;
@@ -26,6 +32,18 @@
     return [basePath stringByAppendingPathComponent:@"CoreDataVersioning"];
 }
 
+- (void)awakeFromNib
+{
+    NSError *error = NULL;
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *applicationSupportDirectory = [self applicationSupportDirectory];
+    NSString *storePath = [applicationSupportDirectory stringByAppendingPathComponent: @"storedata"];
+    if ([fileManager fileExistsAtPath:storePath]) {
+        [fileManager removeItemAtPath:storePath error:&error];
+    }
+    
+    [self seedPersistentStore];
+}
 
 /**
     Creates, retains, and returns the managed object model for the application 
@@ -48,7 +66,7 @@
     if necessary.)
  */
 
-- (NSPersistentStoreCoordinator *) persistentStoreCoordinator {
+- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
 
     if (persistentStoreCoordinator) return persistentStoreCoordinator;
 
@@ -91,7 +109,7 @@
     bound to the persistent store coordinator for the application.) 
  */
  
-- (NSManagedObjectContext *) managedObjectContext {
+- (NSManagedObjectContext *)managedObjectContext {
 
     if (managedObjectContext) return managedObjectContext;
 
@@ -119,6 +137,31 @@
     return [[self managedObjectContext] undoManager];
 }
 
+- (void)seedPersistentStore
+{
+    NSError *error = NULL;
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    // Create a Chef, Recipe and Ingredient
+    NSManagedObject *newChef = [NSEntityDescription
+                                insertNewObjectForEntityForName:@"Chef"
+                                inManagedObjectContext:context];
+    NSManagedObject *newRecipe = [NSEntityDescription
+                                  insertNewObjectForEntityForName:@"Recipe"
+                                  inManagedObjectContext:context];
+    NSManagedObject *newIngredient = [NSEntityDescription
+                                      insertNewObjectForEntityForName:@"Ingredient"
+                                      inManagedObjectContext:context];
+    
+    // Setup the relationships
+    [newRecipe setValue:newChef forKey:@"chef"];
+    [newIngredient setValue:newRecipe forKey:@"recipe"];
+    [context save:&error];
+    if (error) {
+        [[NSApplication sharedApplication] presentError:error];
+    }
+}
 
 /**
     Performs the save action for the application, which is to send the save:
@@ -126,7 +169,7 @@
     are presented to the user.
  */
  
-- (IBAction) saveAction:(id)sender {
+- (IBAction)saveAction:(id)sender {
 
     NSError *error = nil;
     
@@ -139,6 +182,20 @@
     }
 }
 
+- (IBAction)migrateUsingAutoLightweight:sender {
+    NSError *error;
+    NSURL *storeURL = [NSURL URLWithString:@"file:///Users/robertwalker/Desktop/CoreDataVersioning.xml"];
+    NSPersistentStoreCoordinator *psc = [self persistentStoreCoordinator];
+    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
+                             [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
+                             [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
+    
+    if (![psc addPersistentStoreWithType:NSXMLStoreType
+                           configuration:nil URL:storeURL
+                                 options:options error:&error]) {
+        // Handle the error.
+    }
+}
 
 /**
     Implementation of the applicationShouldTerminate: method, used here to
@@ -199,7 +256,6 @@
  */
  
 - (void)dealloc {
-
     [window release];
     [managedObjectContext release];
     [persistentStoreCoordinator release];
@@ -207,6 +263,5 @@
 	
     [super dealloc];
 }
-
 
 @end
