@@ -11,6 +11,7 @@
 @interface CoreDataVersioning_AppDelegate : NSObject 
 {
     NSWindow *window;
+    NSTextField *versionLabel;
     
     NSPersistentStoreCoordinator *persistentStoreCoordinator;
     NSManagedObjectModel *managedObjectModel;
@@ -18,12 +19,14 @@
 }
 
 @property (nonatomic, retain) IBOutlet NSWindow *window;
+@property (nonatomic, retain) IBOutlet NSTextField *versionLabel;
 
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
 
-- (IBAction)saveAction:sender;
-- (IBAction)migrateUsingAutoLightweight:sender;
+- (IBAction)saveAction:(id)sender;
+- (IBAction)resetPersistentStore:(id)sender;
+- (IBAction)migrateUsingAutoLightweight:(id)sender;
 
 @end

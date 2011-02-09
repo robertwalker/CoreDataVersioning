@@ -23,13 +23,13 @@
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		2F7446980DB6B7EA00F9684A /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* CoreDataVersioning_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataVersioning_Prefix.pch; sourceTree = "<group>"; };
-		770B37EC0679A11B001EADE2 /* Version_1.1.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; path = Version_1.1.xcdatamodel; sourceTree = "<group>"; };
+		770B37EC0679A11B001EADE2 /* Version_1.1.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = Version_1.1.xcdatamodel; sourceTree = "<group>"; };
 		77C82804067257F0000B614F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		77C8280B06725ACE000B614F /* CoreDataVersioning_AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataVersioning_AppDelegate.h; sourceTree = "<group>"; };
 		77C8280C06725ACE000B614F /* CoreDataVersioning_AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataVersioning_AppDelegate.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* CoreDataVersioning-Info.plist */ = {isa = PBXFileReference; explicitFileType = text.plist.xml; fileEncoding = 4; path = "CoreDataVersioning-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* CoreDataVersioning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataVersioning.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B6B7414E12DF80A3006620B8 /* Version_1.0.xcdatamodel */ = {isa = PBXFileReference; path = Version_1.0.xcdatamodel; sourceTree = "<group>"; };
+		B6B7414E12DF80A3006620B8 /* Version_1.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Version_1.0.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

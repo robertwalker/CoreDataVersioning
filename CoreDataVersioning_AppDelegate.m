@@ -10,13 +10,14 @@
 
 @interface CoreDataVersioning_AppDelegate ()
 
+- (void)removePersistentStore;
 - (void)seedPersistentStore;
 
 @end
 
 @implementation CoreDataVersioning_AppDelegate
 
-@synthesize window;
+@synthesize window, versionLabel;
 
 /**
     Returns the support directory for the application, used to store the Core Data
@@ -34,15 +35,11 @@
 
 - (void)awakeFromNib
 {
-    NSError *error = NULL;
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSString *applicationSupportDirectory = [self applicationSupportDirectory];
-    NSString *storePath = [applicationSupportDirectory stringByAppendingPathComponent: @"storedata"];
-    if ([fileManager fileExistsAtPath:storePath]) {
-        [fileManager removeItemAtPath:storePath error:&error];
-    }
-    
-    [self seedPersistentStore];
+//    NSDictionary *versionHashes = [[self managedObjectModel] entityVersionHashesByName];
+//    NSString *recipeHash = [versionHashes objectForKey:@"Recipe"];
+    NSSet *versionIdentifiers = [[self managedObjectModel] versionIdentifiers];
+    NSString *versions = [[versionIdentifiers allObjects] componentsJoinedByString:@":"];
+    [self.versionLabel setStringValue:versions];
 }
 
 /**
@@ -137,6 +134,20 @@
     return [[self managedObjectContext] undoManager];
 }
 
+- (void)removePersistentStore
+{
+    NSError *error = NULL;
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *applicationSupportDirectory = [self applicationSupportDirectory];
+    NSString *storePath = [applicationSupportDirectory stringByAppendingPathComponent: @"storedata"];
+    if ([fileManager fileExistsAtPath:storePath]) {
+        [fileManager removeItemAtPath:storePath error:&error];
+        if (error) {
+            [[NSApplication sharedApplication] presentError:error];
+        }
+    }
+}
+
 - (void)seedPersistentStore
 {
     NSError *error = NULL;
@@ -154,6 +165,13 @@
                                       insertNewObjectForEntityForName:@"Ingredient"
                                       inManagedObjectContext:context];
     
+    // Setup the attributes
+    [newChef setValue:@"Wolfgang Puck" forKey:@"name"];
+    [newChef setValue:@"World famous chef" forKey:@"training"];
+    [newRecipe setValue:@"Braised Chestnuts" forKey:@"name"];
+    [newIngredient setValue:@"Chestnuts" forKey:@"name"];
+    [newIngredient setValue:@"2 punnds" forKey:@"amount"];
+
     // Setup the relationships
     [newRecipe setValue:newChef forKey:@"chef"];
     [newIngredient setValue:newRecipe forKey:@"recipe"];
@@ -161,6 +179,12 @@
     if (error) {
         [[NSApplication sharedApplication] presentError:error];
     }
+}
+
+- (IBAction)resetPersistentStore:(id)sender
+{
+    [self removePersistentStore];
+    [self seedPersistentStore];
 }
 
 /**
