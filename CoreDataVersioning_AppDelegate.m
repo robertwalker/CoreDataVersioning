@@ -208,7 +208,8 @@
 
 - (IBAction)migrateUsingAutoLightweight:sender {
     NSError *error;
-    NSURL *storeURL = [NSURL URLWithString:@"file:///Users/robertwalker/Desktop/CoreDataVersioning.xml"];
+    NSString *applicationSupportDirectory = [self applicationSupportDirectory];
+    NSURL *storeURL = [NSURL fileURLWithPath:[applicationSupportDirectory stringByAppendingPathComponent: @"storedata"]];
     NSPersistentStoreCoordinator *psc = [self persistentStoreCoordinator];
     NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
                              [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,

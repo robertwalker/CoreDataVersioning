@@ -12,6 +12,7 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		B64FAD79130224AE00338CC0 /* Version_1.1.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = B64FAD78130224AE00338CC0 /* Version_1.1.xcdatamodel */; };
 		B6B7414D12DF80A3006620B8 /* CoreDataVersioning_DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B6B7414C12DF80A3006620B8 /* CoreDataVersioning_DataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -23,12 +24,12 @@
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		2F7446980DB6B7EA00F9684A /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* CoreDataVersioning_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataVersioning_Prefix.pch; sourceTree = "<group>"; };
-		770B37EC0679A11B001EADE2 /* Version_1.1.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = Version_1.1.xcdatamodel; sourceTree = "<group>"; };
 		77C82804067257F0000B614F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		77C8280B06725ACE000B614F /* CoreDataVersioning_AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataVersioning_AppDelegate.h; sourceTree = "<group>"; };
 		77C8280C06725ACE000B614F /* CoreDataVersioning_AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataVersioning_AppDelegate.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* CoreDataVersioning-Info.plist */ = {isa = PBXFileReference; explicitFileType = text.plist.xml; fileEncoding = 4; path = "CoreDataVersioning-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* CoreDataVersioning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataVersioning.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B64FAD78130224AE00338CC0 /* Version_1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; name = Version_1.1.xcdatamodel; path = /Users/robertwalker/Source/Demos/CoreDataVersioning/CoreDataVersioning_DataModel.xcdatamodeld/Version_1.1.xcdatamodel; sourceTree = "<absolute>"; };
 		B6B7414E12DF80A3006620B8 /* Version_1.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Version_1.0.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -193,6 +194,7 @@
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				77C8280E06725ACE000B614F /* CoreDataVersioning_AppDelegate.m in Sources */,
 				B6B7414D12DF80A3006620B8 /* CoreDataVersioning_DataModel.xcdatamodeld in Sources */,
+				B64FAD79130224AE00338CC0 /* Version_1.1.xcdatamodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,10 +306,10 @@
 		B6B7414C12DF80A3006620B8 /* CoreDataVersioning_DataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				770B37EC0679A11B001EADE2 /* Version_1.1.xcdatamodel */,
+				B64FAD78130224AE00338CC0 /* Version_1.1.xcdatamodel */,
 				B6B7414E12DF80A3006620B8 /* Version_1.0.xcdatamodel */,
 			);
-			currentVersion = 770B37EC0679A11B001EADE2 /* Version_1.1.xcdatamodel */;
+			currentVersion = B64FAD78130224AE00338CC0 /* Version_1.1.xcdatamodel */;
 			path = CoreDataVersioning_DataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
