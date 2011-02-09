@@ -84,7 +84,7 @@
     
     NSURL *url = [NSURL fileURLWithPath: [applicationSupportDirectory stringByAppendingPathComponent: @"storedata"]];
     persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: mom];
-    if (![persistentStoreCoordinator addPersistentStoreWithType:NSXMLStoreType 
+    if (![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType 
                                                 configuration:nil 
                                                 URL:url 
                                                 options:nil 
@@ -214,7 +214,7 @@
                              [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
                              [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
     
-    if (![psc addPersistentStoreWithType:NSXMLStoreType
+    if (![psc addPersistentStoreWithType:NSSQLiteStoreType
                            configuration:nil URL:storeURL
                                  options:options error:&error]) {
         [[NSApplication sharedApplication] presentError:error];
