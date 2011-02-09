@@ -12,6 +12,10 @@
 
 - (void)removePersistentStore;
 - (void)seedPersistentStore;
+- (NSManagedObjectModel *)model1;
+- (NSManagedObjectModel *)model2;
+- (NSURL *)sourceStoreURL;
+- (NSURL *)destinationStoreURL;
 
 @end
 
@@ -185,6 +189,26 @@
     [self seedPersistentStore];
 }
 
+- (NSManagedObjectModel *)model1 {
+    return nil;
+}
+
+- (NSManagedObjectModel *)model2 {
+    return nil;
+}
+
+- (NSURL *)sourceStoreURL {
+    NSString *applicationSupportDirectory = [self applicationSupportDirectory];
+    NSURL *storeURL = [NSURL fileURLWithPath:[applicationSupportDirectory stringByAppendingPathComponent: @"storedata"]];
+    return storeURL;
+}
+
+- (NSURL *)destinationStoreURL {
+    NSString *applicationSupportDirectory = [self applicationSupportDirectory];
+    NSURL *storeURL = [NSURL fileURLWithPath:[applicationSupportDirectory stringByAppendingPathComponent: @"storedata_2"]];
+    return storeURL;
+}
+
 /**
     Performs the save action for the application, which is to send the save:
     message to the application's managed object context.  Any encountered errors
@@ -206,8 +230,6 @@
 
 - (IBAction)migrateUsingAutoLightweight:sender {
     NSError *error = NULL;
-    NSString *applicationSupportDirectory = [self applicationSupportDirectory];
-    NSURL *storeURL = [NSURL fileURLWithPath:[applicationSupportDirectory stringByAppendingPathComponent: @"storedata"]];
     NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc]
                                          initWithManagedObjectModel:[self managedObjectModel]];
     NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -215,12 +237,44 @@
                              [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
     
     if (![psc addPersistentStoreWithType:NSSQLiteStoreType
-                           configuration:nil URL:storeURL
+                           configuration:nil URL:[self sourceStoreURL]
                                  options:options error:&error]) {
         [[NSApplication sharedApplication] presentError:error];
     }
     [self.messageTextField setStringValue:@"Automatic migration complete."];
     [psc release];
+}
+
+- (IBAction)migrateUsingManualLightweight:sender {
+    NSError *error;
+    NSMappingModel *mappingModel = [NSMappingModel
+                                    inferredMappingModelForSourceModel:[self model1]
+                                    destinationModel:[self model2]
+                                    error:&error];
+    if (error) {
+        // TODO: Handle it!
+        return;
+    }
+    
+    NSValue *classValue = [[NSPersistentStoreCoordinator registeredStoreTypes]
+                           objectForKey:NSSQLiteStoreType];
+    Class sqliteStoreClass = (Class)[classValue pointerValue];
+    Class sqliteStoreMigrationManagerClass = [sqliteStoreClass migrationManagerClass];
+    
+    NSMigrationManager *manager = [[sqliteStoreMigrationManagerClass alloc]
+                                   initWithSourceModel:[self model1] destinationModel:[self model2]];
+    
+    if (![manager migrateStoreFromURL:[self sourceStoreURL]
+                                 type:NSSQLiteStoreType
+                              options:nil
+                     withMappingModel:mappingModel
+                     toDestinationURL:[self destinationStoreURL]
+                      destinationType:NSSQLiteStoreType
+                   destinationOptions:nil
+                                error:&error]) {
+        [[NSApplication sharedApplication] presentError:error];
+    }
+    [manager release];
 }
 
 /**

@@ -94,6 +94,7 @@
 							<string key="NSFrame">{{14, 282}, {452, 32}}</string>
 							<reference key="NSSuperview" ref="823886803"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView" ref="482036774"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="972134079">
 								<int key="NSCellFlags">67239424</int>
@@ -115,6 +116,7 @@
 							<string key="NSFrame">{{17, 173}, {446, 17}}</string>
 							<reference key="NSSuperview" ref="823886803"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="966523477">
 								<int key="NSCellFlags">68288064</int>
@@ -142,19 +144,20 @@
 								</object>
 							</object>
 						</object>
-						<object class="NSButton" id="387424236">
+						<object class="NSButton" id="482036774">
 							<reference key="NSNextResponder" ref="823886803"/>
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{14, 250}, {452, 32}}</string>
 							<reference key="NSSuperview" ref="823886803"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView" ref="603587748"/>
 							<bool key="NSEnabled">YES</bool>
-							<object class="NSButtonCell" key="NSCell" id="902208618">
+							<object class="NSButtonCell" key="NSCell" id="86846882">
 								<int key="NSCellFlags">67239424</int>
 								<int key="NSCellFlags2">134217728</int>
-								<string key="NSContents">Save</string>
+								<string key="NSContents">Manual Lightweight Migration</string>
 								<reference key="NSSupport" ref="490881186"/>
-								<reference key="NSControlView" ref="387424236"/>
+								<reference key="NSControlView" ref="482036774"/>
 								<int key="NSButtonFlags">-2038284033</int>
 								<int key="NSButtonFlags2">129</int>
 								<string key="NSAlternateContents"/>
@@ -167,7 +170,7 @@
 					<string key="NSFrame">{{7, 11}, {480, 362}}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
-					<reference key="NSNextKeyView"/>
+					<reference key="NSNextKeyView" ref="664134030"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1440, 878}}</string>
 				<string key="NSMinSize">{213, 129}</string>
@@ -1882,11 +1885,11 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">saveAction:</string>
+						<string key="label">migrateUsingManualLightweight:</string>
 						<reference key="source" ref="612578685"/>
-						<reference key="destination" ref="387424236"/>
+						<reference key="destination" ref="482036774"/>
 					</object>
-					<int key="connectionID">539</int>
+					<int key="connectionID">542</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1934,7 +1937,7 @@
 							<reference ref="664134030"/>
 							<reference ref="412884613"/>
 							<reference ref="603587748"/>
-							<reference ref="387424236"/>
+							<reference ref="482036774"/>
 						</object>
 						<reference key="parent" ref="483958638"/>
 					</object>
@@ -2844,18 +2847,18 @@
 						<reference key="parent" ref="603587748"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">537</int>
-						<reference key="object" ref="387424236"/>
+						<int key="objectID">540</int>
+						<reference key="object" ref="482036774"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="902208618"/>
+							<reference ref="86846882"/>
 						</object>
 						<reference key="parent" ref="823886803"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">538</int>
-						<reference key="object" ref="902208618"/>
-						<reference key="parent" ref="387424236"/>
+						<int key="objectID">541</int>
+						<reference key="object" ref="86846882"/>
+						<reference key="parent" ref="482036774"/>
 					</object>
 				</object>
 			</object>
@@ -3028,8 +3031,8 @@
 					<string>526.IBPluginDependency</string>
 					<string>531.IBPluginDependency</string>
 					<string>532.IBPluginDependency</string>
-					<string>537.IBPluginDependency</string>
-					<string>538.IBPluginDependency</string>
+					<string>540.IBPluginDependency</string>
+					<string>541.IBPluginDependency</string>
 					<string>56.IBPluginDependency</string>
 					<string>56.ImportedFromIB2</string>
 					<string>57.IBEditorWindowLastContentRect</string>
@@ -3254,7 +3257,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">539</int>
+			<int key="maxID">542</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3267,11 +3270,13 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>migrateUsingAutoLightweight:</string>
+							<string>migrateUsingManualLightweight:</string>
 							<string>resetPersistentStore:</string>
 							<string>saveAction:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -3282,6 +3287,7 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>migrateUsingAutoLightweight:</string>
+							<string>migrateUsingManualLightweight:</string>
 							<string>resetPersistentStore:</string>
 							<string>saveAction:</string>
 						</object>
@@ -3289,6 +3295,10 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBActionInfo">
 								<string key="name">migrateUsingAutoLightweight:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">migrateUsingManualLightweight:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
