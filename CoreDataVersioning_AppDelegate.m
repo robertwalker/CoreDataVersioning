@@ -205,10 +205,11 @@
 }
 
 - (IBAction)migrateUsingAutoLightweight:sender {
-    NSError *error;
+    NSError *error = NULL;
     NSString *applicationSupportDirectory = [self applicationSupportDirectory];
     NSURL *storeURL = [NSURL fileURLWithPath:[applicationSupportDirectory stringByAppendingPathComponent: @"storedata"]];
-    NSPersistentStoreCoordinator *psc = [self persistentStoreCoordinator];
+    NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc]
+                                         initWithManagedObjectModel:[self managedObjectModel]];
     NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
                              [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
                              [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
@@ -216,12 +217,10 @@
     if (![psc addPersistentStoreWithType:NSXMLStoreType
                            configuration:nil URL:storeURL
                                  options:options error:&error]) {
-        if (!error) {
-            [self.messageTextField setStringValue:@"Automatic migration complete."];
-        } else {
-            [[NSApplication sharedApplication] presentError:error];
-        }
+        [[NSApplication sharedApplication] presentError:error];
     }
+    [self.messageTextField setStringValue:@"Automatic migration complete."];
+    [psc release];
 }
 
 /**
