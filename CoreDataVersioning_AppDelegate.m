@@ -161,21 +161,20 @@
                                       insertNewObjectForEntityForName:@"Ingredient"
                                       inManagedObjectContext:context];
     
-    [self.messageTextField setStringValue:@"Seeding persistent store"];
-
-    
     // Setup the attributes
     [newChef setValue:@"Wolfgang Puck" forKey:@"name"];
     [newChef setValue:@"World famous chef" forKey:@"training"];
     [newRecipe setValue:@"Braised Chestnuts" forKey:@"name"];
     [newIngredient setValue:@"Chestnuts" forKey:@"name"];
     [newIngredient setValue:@"2 pounds" forKey:@"amount"];
-
+    
     // Setup the relationships
     [newRecipe setValue:newChef forKey:@"chef"];
     [newIngredient setValue:newRecipe forKey:@"recipe"];
     [context save:&error];
-    if (error) {
+    if (!error) {
+        [self.messageTextField setStringValue:@"Persistent store reset."];
+    } else {
         [[NSApplication sharedApplication] presentError:error];
     }
 }
