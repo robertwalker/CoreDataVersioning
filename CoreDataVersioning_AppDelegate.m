@@ -17,7 +17,12 @@
 
 @implementation CoreDataVersioning_AppDelegate
 
-@synthesize window, versionLabel;
+@synthesize window, messageTextField;
+
+- (void)awakeFromNib
+{
+    [self.messageTextField setStringValue:@""];
+}
 
 /**
     Returns the support directory for the application, used to store the Core Data
@@ -31,15 +36,6 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
     NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : NSTemporaryDirectory();
     return [basePath stringByAppendingPathComponent:@"CoreDataVersioning"];
-}
-
-- (void)awakeFromNib
-{
-//    NSDictionary *versionHashes = [[self managedObjectModel] entityVersionHashesByName];
-//    NSString *recipeHash = [versionHashes objectForKey:@"Recipe"];
-    NSSet *versionIdentifiers = [[self managedObjectModel] versionIdentifiers];
-    NSString *versions = [[versionIdentifiers allObjects] componentsJoinedByString:@":"];
-    [self.versionLabel setStringValue:versions];
 }
 
 /**
@@ -165,12 +161,15 @@
                                       insertNewObjectForEntityForName:@"Ingredient"
                                       inManagedObjectContext:context];
     
+    [self.messageTextField setStringValue:@"Seeding persistent store"];
+
+    
     // Setup the attributes
     [newChef setValue:@"Wolfgang Puck" forKey:@"name"];
     [newChef setValue:@"World famous chef" forKey:@"training"];
     [newRecipe setValue:@"Braised Chestnuts" forKey:@"name"];
     [newIngredient setValue:@"Chestnuts" forKey:@"name"];
-    [newIngredient setValue:@"2 punnds" forKey:@"amount"];
+    [newIngredient setValue:@"2 pounds" forKey:@"amount"];
 
     // Setup the relationships
     [newRecipe setValue:newChef forKey:@"chef"];
@@ -218,7 +217,11 @@
     if (![psc addPersistentStoreWithType:NSXMLStoreType
                            configuration:nil URL:storeURL
                                  options:options error:&error]) {
-        // Handle the error.
+        if (!error) {
+            [self.messageTextField setStringValue:@"Automatic migration complete."];
+        } else {
+            [[NSApplication sharedApplication] presentError:error];
+        }
     }
 }
 
