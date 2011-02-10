@@ -190,11 +190,19 @@
 }
 
 - (NSManagedObjectModel *)model1 {
-    return nil;
+    NSString *modelPath = [[[[[NSBundle mainBundle] resourcePath]
+                             stringByAppendingPathComponent:@"CoreDataVersioning_DataModel.momd"]
+                            stringByAppendingPathComponent:@"/Version_1.0"]
+                           stringByAppendingPathExtension:@"mom"];
+    return [[[NSManagedObjectModel alloc] initWithContentsOfURL:[NSURL fileURLWithPath:modelPath]] autorelease];
 }
 
 - (NSManagedObjectModel *)model2 {
-    return nil;
+    NSString *modelPath = [[[[[NSBundle mainBundle] resourcePath]
+                             stringByAppendingPathComponent:@"CoreDataVersioning_DataModel.momd"]
+                            stringByAppendingPathComponent:@"/Version_1.1"]
+                           stringByAppendingPathExtension:@"mom"];
+    return [[[NSManagedObjectModel alloc] initWithContentsOfURL:[NSURL fileURLWithPath:modelPath]] autorelease];
 }
 
 - (NSURL *)sourceStoreURL {
@@ -229,6 +237,8 @@
 }
 
 - (IBAction)migrateUsingAutoLightweight:sender {
+    [self.messageTextField setStringValue:@""];
+
     NSError *error = NULL;
     NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc]
                                          initWithManagedObjectModel:[self managedObjectModel]];
@@ -246,13 +256,15 @@
 }
 
 - (IBAction)migrateUsingManualLightweight:sender {
-    NSError *error;
+    [self.messageTextField setStringValue:@""];
+
+    NSError *error = NULL;
     NSMappingModel *mappingModel = [NSMappingModel
                                     inferredMappingModelForSourceModel:[self model1]
                                     destinationModel:[self model2]
                                     error:&error];
-    if (error) {
-        // TODO: Handle it!
+    if (error) { 
+        [[NSApplication sharedApplication] presentError:error];
         return;
     }
     
@@ -273,6 +285,8 @@
                    destinationOptions:nil
                                 error:&error]) {
         [[NSApplication sharedApplication] presentError:error];
+    } else {
+        [self.messageTextField setStringValue:@"Manual migration complete."];
     }
     [manager release];
 }
