@@ -29,5 +29,6 @@
 - (IBAction)resetPersistentStore:(id)sender;
 - (IBAction)migrateUsingAutoLightweight:(id)sender;
 - (IBAction)migrateUsingManualLightweight:sender;
+- (IBAction)migrateUsingThreeStage:(id)sender;
 
 @end

@@ -150,7 +150,7 @@
 							<string key="NSFrame">{{14, 250}, {452, 32}}</string>
 							<reference key="NSSuperview" ref="823886803"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="603587748"/>
+							<reference key="NSNextKeyView" ref="825310930"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="86846882">
 								<int key="NSCellFlags">67239424</int>
@@ -158,6 +158,28 @@
 								<string key="NSContents">Manual Lightweight Migration</string>
 								<reference key="NSSupport" ref="490881186"/>
 								<reference key="NSControlView" ref="482036774"/>
+								<int key="NSButtonFlags">-2038284033</int>
+								<int key="NSButtonFlags2">129</int>
+								<string key="NSAlternateContents"/>
+								<string key="NSKeyEquivalent"/>
+								<int key="NSPeriodicDelay">200</int>
+								<int key="NSPeriodicInterval">25</int>
+							</object>
+						</object>
+						<object class="NSButton" id="825310930">
+							<reference key="NSNextResponder" ref="823886803"/>
+							<int key="NSvFlags">268</int>
+							<string key="NSFrame">{{14, 218}, {452, 32}}</string>
+							<reference key="NSSuperview" ref="823886803"/>
+							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView" ref="603587748"/>
+							<bool key="NSEnabled">YES</bool>
+							<object class="NSButtonCell" key="NSCell" id="738453294">
+								<int key="NSCellFlags">67239424</int>
+								<int key="NSCellFlags2">134217728</int>
+								<string key="NSContents">Three-Stage Migration</string>
+								<reference key="NSSupport" ref="490881186"/>
+								<reference key="NSControlView" ref="825310930"/>
 								<int key="NSButtonFlags">-2038284033</int>
 								<int key="NSButtonFlags2">129</int>
 								<string key="NSAlternateContents"/>
@@ -1891,6 +1913,14 @@
 					</object>
 					<int key="connectionID">542</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">migrateUsingThreeStage:</string>
+						<reference key="source" ref="612578685"/>
+						<reference key="destination" ref="825310930"/>
+					</object>
+					<int key="connectionID">545</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -1938,6 +1968,7 @@
 							<reference ref="412884613"/>
 							<reference ref="603587748"/>
 							<reference ref="482036774"/>
+							<reference ref="825310930"/>
 						</object>
 						<reference key="parent" ref="483958638"/>
 					</object>
@@ -2860,6 +2891,20 @@
 						<reference key="object" ref="86846882"/>
 						<reference key="parent" ref="482036774"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">543</int>
+						<reference key="object" ref="825310930"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="738453294"/>
+						</object>
+						<reference key="parent" ref="823886803"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">544</int>
+						<reference key="object" ref="738453294"/>
+						<reference key="parent" ref="825310930"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -3033,6 +3078,8 @@
 					<string>532.IBPluginDependency</string>
 					<string>540.IBPluginDependency</string>
 					<string>541.IBPluginDependency</string>
+					<string>543.IBPluginDependency</string>
+					<string>544.IBPluginDependency</string>
 					<string>56.IBPluginDependency</string>
 					<string>56.ImportedFromIB2</string>
 					<string>57.IBEditorWindowLastContentRect</string>
@@ -3224,6 +3271,8 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>{{85, 781}, {245, 183}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3257,7 +3306,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">542</int>
+			<int key="maxID">545</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3271,11 +3320,13 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>migrateUsingAutoLightweight:</string>
 							<string>migrateUsingManualLightweight:</string>
+							<string>migrateUsingThreeStage:</string>
 							<string>resetPersistentStore:</string>
 							<string>saveAction:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -3288,6 +3339,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>migrateUsingAutoLightweight:</string>
 							<string>migrateUsingManualLightweight:</string>
+							<string>migrateUsingThreeStage:</string>
 							<string>resetPersistentStore:</string>
 							<string>saveAction:</string>
 						</object>
@@ -3299,6 +3351,10 @@
 							</object>
 							<object class="IBActionInfo">
 								<string key="name">migrateUsingManualLightweight:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">migrateUsingThreeStage:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">

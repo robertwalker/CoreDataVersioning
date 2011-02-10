@@ -291,6 +291,24 @@
     [manager release];
 }
 
+- (IBAction)migrateUsingThreeStage:(id)sender {
+    [self.messageTextField setStringValue:@""];
+    
+    NSError *error = NULL;
+    NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc]
+                                         initWithManagedObjectModel:[self managedObjectModel]];
+    NSDictionary *options = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES]
+                                                        forKey:NSMigratePersistentStoresAutomaticallyOption];
+    
+    if (![psc addPersistentStoreWithType:NSSQLiteStoreType
+                           configuration:nil URL:[self sourceStoreURL]
+                                 options:options error:&error]) {
+        [[NSApplication sharedApplication] presentError:error];
+    }
+    [self.messageTextField setStringValue:@"Three-stage migration complete."];
+    [psc release];
+}
+
 /**
     Implementation of the applicationShouldTerminate: method, used here to
     handle the saving of changes in the application managed object context
