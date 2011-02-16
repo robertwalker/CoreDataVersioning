@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" standalone="yes"?>
 <!DOCTYPE database SYSTEM "file:///System/Library/DTDs/CoreData.dtd">
 
 <database>
@@ -44,7 +44,7 @@
     </databaseInfo>
     <object type="XDDEVATTRIBUTEMAPPING" id="z102">
         <attribute name="name" type="string">rating</attribute>
-        <relationship name="entitymapping" type="1/1" destination="XDDEVENTITYMAPPING" idrefs="z114"></relationship>
+        <relationship name="entitymapping" type="1/1" destination="XDDEVENTITYMAPPING"></relationship>
     </object>
     <object type="XDDEVATTRIBUTEMAPPING" id="z103">
         <attribute name="name" type="string">amount</attribute>
@@ -112,8 +112,8 @@
         <attribute name="destinationname" type="string">Recipe</attribute>
         <attribute name="autogenerateexpression" type="bool">1</attribute>
         <relationship name="mappingmodel" type="1/1" destination="XDDEVMAPPINGMODEL" idrefs="z119"></relationship>
-        <relationship name="attributemappings" type="0/0" destination="XDDEVATTRIBUTEMAPPING" idrefs="z118 z102 z107"></relationship>
-        <relationship name="relationshipmappings" type="0/0" destination="XDDEVRELATIONSHIPMAPPING" idrefs="z113 z105 z108"></relationship>
+        <relationship name="attributemappings" type="0/0" destination="XDDEVATTRIBUTEMAPPING" idrefs="z118 z107"></relationship>
+        <relationship name="relationshipmappings" type="0/0" destination="XDDEVRELATIONSHIPMAPPING" idrefs="z113 z108 z105"></relationship>
     </object>
     <object type="XDDEVRELATIONSHIPMAPPING" id="z115">
         <attribute name="autogenerateexpression" type="bool">1</attribute>
@@ -155,6 +155,9 @@ ctEABgAHVHJvb3SAAa8RAgQACQAKABkAGgA2ADcAOABGAEcASABJAEoAZQBmAGcAbQBuAHoAigCLAIwA
         <relationship name="entitymapping" type="1/1" destination="XDDEVENTITYMAPPING" idrefs="z104"></relationship>
     </object>
     <object type="XDDEVATTRIBUTEMAPPING" id="z121">
+        <attribute name="valueexpressiondata" type="binary">YnBsaXN0MDDUAQIDBAUIPj9UJHRvcFgkb2JqZWN0c1gkdmVyc2lvblkkYXJjaGl2ZXLRBgdUcm9v
+dIABrAkKFRYbHCQpLi80OFUkbnVsbNULDA0ODxAREhMUWU5TT3BlcmFuZF5OU1NlbGVjdG9yTmFtZV8QEE5TRXhwcmVzc2lvblR5cGVbTlNBcmd1bWVudHNWJGNsYXNzgAOAAhAEgAaAC18QEHZhbHVlRm9yS2V5UGF0aDrTFw0PGBkaWk5TVmFyaWFibGWABBACgAVWc291cmNl0h0eHyNYJGNsYXNzZXNaJGNsYXNzbmFtZaMgISJfEBROU1ZhcmlhYmxlRXhwcmVzc2lvblxOU0V4cHJlc3Npb25YTlNPYmplY3RfEBROU1ZhcmlhYmxlRXhwcmVzc2lvbtIlDyYoWk5TLm9iamVjdHOhJ4AHgArTKg0PKywtWU5TS2V5UGF0aIAIEAqACVRuYW1l0h0eMDOjMTIiXxAcTlNLZXlQYXRoU3BlY2lmaWVyRXhwcmVzc2lvblxOU0V4cHJlc3Npb25fEBxOU0tleVBhdGhTcGVjaWZpZXJFeHByZXNzaW9u0h0eNTajNjciXk5TTXV0YWJsZUFycmF5V05TQXJyYXnSHR45PaQ6OzwiXxATTlNLZXlQYXRoRXhwcmVzc2lvbl8QFE5TRnVuY3Rpb25FeHByZXNzaW9uXE5TRXhwcmVzc2lvbl8QE05TS2V5UGF0aEV4cHJlc3Npb24SAAGGoF8QD05TS2V5ZWRBcmNoaXZlcgAIABEAFgAfACgAMgA1ADoAPABJAE8AWgBkAHMAhgCSAJkAmwCdAJ8AoQCjALYAvQDIAMoAzADOANUA2gDjAO4A8gEJARYBHwE2ATsBRgFIAUoBTAFTAV0BXwFhAWMBaAFtAXEBkAGdAbwBwQHFAdQB3AHhAeYB/AITAiACNgI7AAAAAAAAAgEAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAk0=
+</attribute>
         <attribute name="name" type="string">firstName</attribute>
         <relationship name="entitymapping" type="1/1" destination="XDDEVENTITYMAPPING" idrefs="z116"></relationship>
     </object>
