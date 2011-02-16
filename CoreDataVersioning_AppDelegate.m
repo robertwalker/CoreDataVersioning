@@ -192,7 +192,7 @@
 - (NSManagedObjectModel *)model1 {
     NSString *modelPath = [[[[[NSBundle mainBundle] resourcePath]
                              stringByAppendingPathComponent:@"CoreDataVersioning_DataModel.momd"]
-                            stringByAppendingPathComponent:@"/Version_1.0"]
+                            stringByAppendingPathComponent:@"/Version_1.1"]
                            stringByAppendingPathExtension:@"mom"];
     return [[[NSManagedObjectModel alloc] initWithContentsOfURL:[NSURL fileURLWithPath:modelPath]] autorelease];
 }
@@ -200,7 +200,7 @@
 - (NSManagedObjectModel *)model2 {
     NSString *modelPath = [[[[[NSBundle mainBundle] resourcePath]
                              stringByAppendingPathComponent:@"CoreDataVersioning_DataModel.momd"]
-                            stringByAppendingPathComponent:@"/Version_1.1"]
+                            stringByAppendingPathComponent:@"/Version_2.0"]
                            stringByAppendingPathExtension:@"mom"];
     return [[[NSManagedObjectModel alloc] initWithContentsOfURL:[NSURL fileURLWithPath:modelPath]] autorelease];
 }
