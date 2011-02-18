@@ -31,9 +31,9 @@
 		77C8280C06725ACE000B614F /* CoreDataVersioning_AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataVersioning_AppDelegate.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* CoreDataVersioning-Info.plist */ = {isa = PBXFileReference; explicitFileType = text.plist.xml; fileEncoding = 4; path = "CoreDataVersioning-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* CoreDataVersioning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataVersioning.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B6217AF413026AD400B45C75 /* Version_1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; name = Version_1.1.xcdatamodel; path = /Users/robertwalker/Source/Demos/CoreDataVersioning/CoreDataVersioning_DataModel.xcdatamodeld/Version_1.1.xcdatamodel; sourceTree = "<absolute>"; };
+		B6217AF413026AD400B45C75 /* Version_1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Version_1.1.xcdatamodel; sourceTree = "<group>"; };
 		B6B7414E12DF80A3006620B8 /* Version_1.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Version_1.0.xcdatamodel; sourceTree = "<group>"; };
-		B6C1D6D8130276060041DD3B /* Version_2.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; name = Version_2.0.xcdatamodel; path = /Users/robertwalker/Source/Demos/CoreDataVersioning/CoreDataVersioning_DataModel.xcdatamodeld/Version_2.0.xcdatamodel; sourceTree = "<absolute>"; };
+		B6C1D6D8130276060041DD3B /* Version_2.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Version_2.0.xcdatamodel; sourceTree = "<group>"; };
 		B6C1D6DA13027ACC0041DD3B /* OneDotOneToTwoMapping.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; name = OneDotOneToTwoMapping.xcmappingmodel; path = CoreDataVersioning_DataModel.xcdatamodeld/OneDotOneToTwoMapping.xcmappingmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
